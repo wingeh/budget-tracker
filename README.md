@@ -1,8 +1,7 @@
 # budget-tracker
-PWA for keeping track of expenses when offline
 
 ## Description
-Express and Mongo DB workout tracker.
+Personal expense tracker PWA using Express and MongoDB.
 
 ## Table of contents
   - [Description](#description)
@@ -18,13 +17,13 @@ Navigate to main folder of the app in a terminal, then type `npm start` to begin
 ## Screenshots
 
 ### Recording Transactions While Online
-![Online](./Assets/online.jpg)
+![Online](./Assets/online.png)
 
 ### Recording Transactions While Offline
-![Offline](./Assets/offline.jpg)
+![Offline](./Assets/offline.png)
 
 ### Reconnection
-![Reconnected](./Assets/reconnected.png)
+![Reconnected](./Assets/reconnection.png)
 
 
 ## Heroku Demo
