@@ -195,9 +195,20 @@ function sendTransaction(isAdding) {
 }
 
 function saveRecord (transactions) {
-  let transaction = db.transaction(['budgetOffline'], 'readwrite');
-  let budgetStore = transaction.objectStore('budgetOffline');
-  budgetStore.add(transactions);
+  console.log(transactions)
+  const request = indexedDB.open('budgetOffline', dbVersion || 1);
+
+  request.onupgradeneeded = ({ target }) => {
+    const db = target.result
+    const budgetStore = db.createObjectStore('budgetOffline', {autoIncrement: true});  
+  };
+
+  request.onsuccess= () => {
+    const db = request.result;
+    const transaction = db.transaction(['budgetOffline'], 'readwrite');
+    const budgetStore = transaction.objectStore('budgetOffline');
+    budgetStore.add(transactions);
+  }; 
 };
 
 document.querySelector("#add-btn").onclick = function() {
